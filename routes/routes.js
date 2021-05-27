@@ -23,6 +23,21 @@ let userSchema = mongoose.Schema({
 
 let User = mongoose.model('User_Collection', userSchema);
 
+exports.login = (req,res) => {
+    res.render('login', {
+      title: 'Login'
+      //the first page that appears
+    });
+    res.redirect('/home')
+}
+
+exports.home = (req, res) => {
+    res.render('home', {
+      title: 'Home'
+    })
+};
+
+
 exports.create = (req, res) => {
     res.render('createAccount', {
       title: 'Create an Account'
