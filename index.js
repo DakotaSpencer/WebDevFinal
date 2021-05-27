@@ -17,8 +17,8 @@ let urlencodedParser = bodyParser.urlencoded({
 //app.get('/api', routes.index);
 
 app.get('/', urlencodedParser, routes.login);
-app.post('/home', urlencodedParser, routes.home);
-app.post('/create', urlencodedParser, routes.createAccount);
+//app.post('/home', urlencodedParser, routes.home);
+//app.post('/create', urlencodedParser, routes.createAccount);
 //:id is a parameter
 
 //Routes.editperosn is running a method, which is called whenever something uses the POST method with an action of the same value
