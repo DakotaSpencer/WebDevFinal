@@ -29,7 +29,7 @@ exports.login = (req,res) => {
       title: 'Login'
       //the first page that appears
     });
-    res.redirect('/home')
+    //res.redirect('/home')
 }
 
 exports.home = (req, res) => {
