@@ -1,21 +1,28 @@
-const dbPath = "mongodb+srv://JWilliams1233:9542715.Jw1233@cluster0.ujp1m.mongodb.net/Users?retryWrites=true&w=majority"
-
 const express = require('express');
-const pug = require('pug');
-const mongoose = require('mongoose');
-const { allowedNodeEnvironmentFlags } = require('node:process');
-mongoose.Promise = global.Promise;
+const bodyParser = require('body-parser');
+const routes = require('./routes/routes');
+const path = require('path');
+const { url } = require('inspector');
+const cors = require('cors');
 
 const app = express();
 
-mongoose.connect(dbPath, {
-    useUnifiedTopology: true,
-    useNewUrlParser: true,
+app.use(cors())
+
+app.use(express.static(path.join(__dirname, 'public')));
+
+let urlencodedParser = bodyParser.urlencoded({
+    extended: true
 });
 
-/* app.set('view engine', 'pug');
-app.set('views', __dirname + '/views');
-app.use(express.static(path.join(__dirname, '/public')));*/
+app.get('/api', routes.index);
 
-let mdb = mongoose.connection;
-mdb.on('error', console.error.bind(console, 'connection error'));
+app.post('/login', urlencodedParser, routes.login);
+app.post('/create', urlencodedParser, routes.createAccount);
+//:id is a parameter
+
+//Routes.editperosn is running a method, which is called whenever something uses the POST method with an action of the same value
+
+//deletes based on ID
+
+app.listen(3000);
