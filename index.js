@@ -2,7 +2,6 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const routes = require('./routes/routes');
 const path = require('path');
-const { url } = require('inspector');
 const cors = require('cors');
 
 const app = express();
@@ -15,7 +14,7 @@ let urlencodedParser = bodyParser.urlencoded({
     extended: true
 });
 
-app.get('/api', routes.index);
+//app.get('/api', routes.index);
 
 app.post('/login', urlencodedParser, routes.login);
 app.post('/create', urlencodedParser, routes.createAccount);
