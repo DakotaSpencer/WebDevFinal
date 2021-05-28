@@ -28,10 +28,4 @@ app.get('/', urlencodedParser, routes.login);
 //app.get('/createAccount', urlencodedParser, routes.createAccount);
 //app.post('/createAccount', urlencodedParser, routes.createAccount);
 
-//:id is a parameter
-
-//Routes.editperosn is running a method, which is called whenever something uses the POST method with an action of the same value
-
-//deletes based on ID
-
 app.listen(3000);
