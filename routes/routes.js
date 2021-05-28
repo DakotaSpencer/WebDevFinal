@@ -43,7 +43,7 @@ exports.createAccount = (req, res) => {
     res.render('createAccount', {
       title: 'Create an Account'
     })
-    //Takes to page
+    res.redirect('/createAccount')
 };
   
 exports.createPerson = (req, res) => {
