@@ -24,8 +24,8 @@ let urlencodedParser = bodyParser.urlencoded({
 //app.get('/api', routes.index);
 
 app.get('/', urlencodedParser, routes.login);
-//app.post('/home', urlencodedParser, routes.home);
-//app.get('/createAccount', urlencodedParser, routes.createAccount);
+app.post('/home', urlencodedParser, routes.home);
+app.get('/create', urlencodedParser, routes.createAccount);
 //app.post('/createAccount', urlencodedParser, routes.createAccount);
 
 app.listen(3000);
