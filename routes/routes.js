@@ -1,5 +1,7 @@
 const dbPath = "mongodb+srv://JWilliams1233:pass~word@cluster0.ujp1m.mongodb.net/Users?retryWrites=true&w=majority"
 
+const config = require('../config');
+
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
@@ -26,7 +28,8 @@ let User = mongoose.model('User_Collection', userSchema);
 
 exports.login = (req,res) => {
     res.render('login', {
-      title: 'Login'
+      title: 'Login',
+      config: config
       //the first page that appears
     });
     //res.redirect('/home')
@@ -34,14 +37,16 @@ exports.login = (req,res) => {
 
 exports.home = (req, res) => {
     res.render('home', {
-      title: 'Home'
+      title: 'Home',
+      config: config
     })
 };
 
 
 exports.createAccount = (req, res) => {
     res.render('createAccount', {
-      title: 'Create an Account'
+      title: 'Create an Account',
+      config: config
     })
     res.redirect('/createAccount')
 };
