@@ -27,7 +27,7 @@ let urlencodedParser = bodyParser.urlencoded({
 app.get('/', urlencodedParser, routes.login);
 //app.post('/home', urlencodedParser, routes.home);
 //app.get('/createAccount', urlencodedParser, routes.createAccount);
-//app.post('/createAccount', urlencodedParser, routes.createAccount);
+app.post('/createAccount', urlencodedParser, routes.createAccount);
 
 //:id is a parameter
 
