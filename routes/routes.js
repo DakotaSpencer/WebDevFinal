@@ -39,7 +39,7 @@ exports.home = (req, res) => {
 };
 
 
-exports.create = (req, res) => {
+exports.createAccount = (req, res) => {
     res.render('createAccount', {
       title: 'Create an Account'
     })
