@@ -16,10 +16,7 @@ mdb.once('open', callBack => {});
 
 let userSchema = mongoose.Schema({
     username: String,
-    /* password: String, (I think we need to get the password
-         first then make a variable equaling that then 
-         salt & hasing it then saving it)
-    */
+     password: String, 
     email: String, 
     age: String,
 });
@@ -70,20 +67,18 @@ const makeHash = theString => {
           } else {
             res.redirect('/')
           };
-          //console.log(req.body.name + ' added.');
-          //All that is needed to save this to a database
-          //redirects back to the homepage
+          console.log(req.body.name + ' added.');
         });
       });
   });
 };
-  
+/*
 exports.createPerson = (req, res) => {
     //Form used to get data
     //person passes in an object
     makeHash.user
   
-    user.save((err, user) => {
+    makeHash.user.save((err) => {
       //returns err if theres an error
       if(err) return console.error(err);
   
@@ -92,4 +87,4 @@ exports.createPerson = (req, res) => {
       //redirects back to the homepage
     });
     res.redirect('/');
-  };
+  };*/
