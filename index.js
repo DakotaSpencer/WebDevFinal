@@ -7,16 +7,16 @@ const cors = require('cors');
 
 const app = express();
 
+app.set('view engine', 'pug');
+app.set('views', __dirname + '/views');
+app.use(express.static(path.join(__dirname, '/public')));
+
+app.use(cors());
 
 app.set('view engine', 'pug');
 app.set('views', __dirname + '/views');
 app.use(express.static(path.join(__dirname, '/public')));
 
-app.use(cors())
-
-app.set('view engine', 'pug');
-app.set('views', __dirname + '/views');
-app.use(express.static(path.join(__dirname, '/public')));
 
 let urlencodedParser = bodyParser.urlencoded({
     extended: true
@@ -24,10 +24,10 @@ let urlencodedParser = bodyParser.urlencoded({
 
 //app.get('/api', routes.index);
 
-app.get('/', urlencodedParser, routes.login);
+app.get('/login', urlencodedParser, routes.login);
 //app.post('/home', urlencodedParser, routes.home);
-//app.get('/createAccount', urlencodedParser, routes.createAccount);
-app.post('/createAccount', urlencodedParser, routes.createAccount);
+app.get('/createAccount', routes.createAccount);
+app.post('/createAccount', urlencodedParser, routes.createPerson);
 
 //:id is a parameter
 
