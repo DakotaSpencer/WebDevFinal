@@ -1,40 +1,45 @@
 //-extends layout 
 
+
 block content
-h1 Create an Account
-    p Username
-        input(type="text" name="username")
-    p Password
-        input(type="text" name='password')
-    p Email 
-        input(type="text" name='email')
-    p Age 
-        input(type="text" name='age')
-    h2 Please Answer all 4 questions
-            h3 What is your favorite animals
-        input(type="radio" id="dog" name="animal" value="dog")
-            label(for="dog") dog
-        input(type="radio" id="cat" name="animal" value="cat")
-            label(for="cat") cat
-        input(type="radio" id="fish" name="animal" value="fish")
-            label(for="fish") fish
-        input(type="radio" id="bird" name="animal" value="bird")
-            label(for="bird") bird
-            h3 What is your favorite color
-        input(type="radio" id="pink" name="color" value="pink")
-            label(for="pink") pink 
-        input(type="radio" id="orange" name="color" value="orange")
-            label(for="orange") orange
-        input(type="radio" id="purple" name="color" value="purple")
-            label(for="purple") purple 
-        input(type="radio" id="limeGreen" name="color" value="limeGreen")
-            label(for="limeGreen") lime green
-            h3 What is your favorite food 
-        input(type="radio" id="pizza" name="food" value="pizza")
-            label(for="pizza") pizza
-        input(type="radio" id="burger" name="food" value="burger")
-            label(for="burger") burger
-        input(type="radio" id="chickenNugget" name="food" value="chickenNugget")
-            label(for="chickenNugget") chicken nugget
-        
-        
+    h1 Create an Account
+    form(id='form' method='POST' action='/createAccount')
+        p Username: 
+            input(type="text" name="username")
+        p Password: 
+            input(type="text" name='password')
+        p Email: 
+            input(type="text" name='email')
+        p Age: 
+            input(type="text" name='age')
+        h2 Please Answer all 4 questions
+                h3 What is your favorite animals
+                    input(type="radio" id="dog" name="animal" value="dog")
+                    label(for="dog") dog
+                    input(type="radio" id="cat" name="animal" value="cat")
+                    label(for="cat") cat
+                    input(type="radio" id="fish" name="animal" value="fish")
+                    label(for="fish") fish
+                    input(type="radio" id="bird" name="animal" value="bird")
+                    label(for="bird") bird
+                h3 What is your favorite color
+                    input(type="radio" id="pink" name="color" value="pink")
+                    label(for="pink") pink 
+                    input(type="radio" id="orange" name="color" value="orange")
+                    label(for="orange") orange
+                    input(type="radio" id="purple" name="color" value="purple")
+                    label(for="purple") purple 
+                    input(type="radio" id="limeGreen" name="color" value="limeGreen")
+                    label(for="limeGreen") lime green
+                h3 What is your favorite food 
+                    input(type="radio" id="pizza" name="food" value="pizza")
+                    label(for="pizza") pizza
+                    input(type="radio" id="burger" name="food" value="burger")
+                    label(for="burger") burger
+                    input(type="radio" id="chickenNugget" name="food" value="chickenNugget")
+                    label(for="chickenNugget") chicken nuggets
+                    input(type="radio" id="nachoes" name="food" value="nachoes")
+                    label(for="nachoes") nachoes
+        p 
+            input(type="submit" value='Create Account')
+
