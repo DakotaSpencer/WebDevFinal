@@ -16,10 +16,7 @@ mdb.once('open', callBack => {});
 
 let userSchema = mongoose.Schema({
     username: String,
-    /* password: String, (I think we need to get the password
-         first then make a variable equaling that then 
-         salt & hasing it then saving it)
-    */
+    password: String, 
     email: String, 
     age: String,
 });

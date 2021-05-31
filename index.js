@@ -13,11 +13,6 @@ app.use(express.static(path.join(__dirname, '/public')));
 
 app.use(cors());
 
-app.set('view engine', 'pug');
-app.set('views', __dirname + '/views');
-app.use(express.static(path.join(__dirname, '/public')));
-
-
 let urlencodedParser = bodyParser.urlencoded({
     extended: true
 });
