@@ -1,7 +1,5 @@
 const dbPath = "mongodb+srv://JWilliams1233:pass~word@cluster0.ujp1m.mongodb.net/Users?retryWrites=true&w=majority"
-
 const bcrypt = require('bcryptjs');
-
 const config = require('../config');
 
 const mongoose = require('mongoose');
@@ -21,9 +19,9 @@ let userSchema = mongoose.Schema({
     password: String, 
     email: String, 
     age: String,
-    question1: String,
-    question2: String,
-    question3: String,
+    questionOne: String,
+    questionTwo: String,
+    questionThree: String,
 });
 
 let User = mongoose.model('User_Collection', userSchema);
@@ -43,14 +41,13 @@ exports.home = (req, res) => {
       config: config
     })
 };
-
-
+//Directs to the createAccount pug page
 exports.createAccount = (req, res) => {
     res.render('createAccount', {
       title: 'Create an Account',
       config: config
     })
-    //res.redirect('/createAccount')
+    res.redirect('/createAccount')
 };
 
 exports.makeHash = (req,res) => {
@@ -61,9 +58,9 @@ exports.makeHash = (req,res) => {
           password: myHash,
           email: req.body.email,
           age: req.body.age,
-          questionOne: req.body.questionOne,
-          questionTwo: req.body.questionTwo,
-          questionThree: req.body.questionThree
+          questionOne: req.body.animal,
+          questionTwo: req.body.color,
+          questionThree: req.body.food
         });
         user.save((err, para2) => {
           //returns err if theres an error
@@ -82,7 +79,27 @@ exports.makeHash = (req,res) => {
 };
 //Checking for user Authenitcation
 exports.loginAuth = (req,res) => {
-    User.findById(req.params.id, (err,user) => {
-      bcrypt.compare(req.params.password)
-    })
+    User.find({username: req.body.username}, (err,user) => {
+      bcrypt.compare(req.body.password, user[0].password, (err, res1) => {
+        if(res1 === true){
+          res.render("home", {title: "home page", config: config})
+        } else {
+          //res.render("login", {title: "login page", config: config})
+          res.redirect('/');
+        }
+      });
+    });
  };
+
+//  app.post('/', urlEncodedParser, (req,res) => {
+//   console.log(req.body.username);
+//   if(req.body.username == 'user' && req.body.password =='pass') {
+//       req.session.user = {
+//           isAuthenticated: true,
+//           username: req.body.username
+//       }
+//       res.redirect('/private');
+//   } else {
+//       res.redirect('/');
+//   }
+// });
