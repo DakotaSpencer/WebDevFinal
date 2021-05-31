@@ -3,13 +3,18 @@ html
   head 
     title=title
     link(rel = 'stylesheet' href = 'style.css')
-  body
-    header 
-      nav 
+    nav 
         ul 
           each item in config.menu 
             a(href=item[1] target = item[2])
-              div(class = 'menu_item')
+              div(class="btn")
                 li(id=item[0]) #{item[0]}
-
-    block content
+          if user 
+            a(href='/editAccount')
+              div(class="btn")
+                li(id="editAccount") Edit
+  body
+      
+    section 
+      block content
+      p Last Time Visited#{cookie}
