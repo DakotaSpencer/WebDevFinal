@@ -18,9 +18,12 @@ mdb.once('open', callBack => {});
 
 let userSchema = mongoose.Schema({
     username: String,
-     password: String, 
+    password: String, 
     email: String, 
     age: String,
+    question1: String,
+    question2: String,
+    question3: String,
 });
 
 let User = mongoose.model('User_Collection', userSchema);
@@ -57,7 +60,10 @@ exports.makeHash = (req,res) => {
           username: req.body.username,
           password: myHash,
           email: req.body.email,
-          age: req.body.age
+          age: req.body.age,
+          questionOne: req.body.questionOne,
+          questionTwo: req.body.questionTwo,
+          questionThree: req.body.questionThree
         });
         user.save((err, para2) => {
           //returns err if theres an error
