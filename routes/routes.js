@@ -27,79 +27,100 @@ let userSchema = mongoose.Schema({
 let User = mongoose.model('User_Collection', userSchema);
 
 exports.login = (req,res) => {
+  let lastVisited = req.cookies.LoginLastVisited;
+  res.cookie("LoginLastVisited", `${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}`)
     res.render('login', {
       title: 'Login',
-      config: config
+      config: config,
+      cookie: lastVisited
       //the first page that appears
     });
     //res.redirect('/home')
 }
 
 exports.home = (req, res) => {
+  let lastVisited = req.cookies.HomeLastVisited;
+  res.cookie("HomeLastVisited", `${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}`)
+ 
     res.render('home', {
       title: 'Home',
-      config: config
+      config: config,
+      cookie: lastVisited,
     })
 };
-//Directs to the createAccount pug page
+
+
 exports.createAccount = (req, res) => {
+  let lastVisited = req.cookies.CreateLastVisited;
+  res.cookie("CreateLastVisited", `${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}`)
+ 
     res.render('createAccount', {
       title: 'Create an Account',
-      config: config
+      config: config,
+      cookie: lastVisited,
     })
-    res.redirect('/createAccount')
+    //res.redirect('/createAccount')
 };
 
 exports.makeHash = (req,res) => {
-  bcrypt.genSalt(10, (err, salt) => {
-      bcrypt.hash(req.body.password, salt, (err, myHash) => {
-        let user = new User({
-          username: req.body.username,
-          password: myHash,
-          email: req.body.email,
-          age: req.body.age,
-          questionOne: req.body.animal,
-          questionTwo: req.body.color,
-          questionThree: req.body.food
+  if(req.body.password && req.body.username && req.body.email && req.body.age){
+    bcrypt.genSalt(10, (err, salt) => {
+        bcrypt.hash(req.body.password, salt, (err, myHash) => {
+          let user = new User({
+            username: req.body.username,
+            password: myHash,
+            email: req.body.email,
+            age: req.body.age,
+            questionOne: req.body.animal,
+            questionTwo: req.body.color,
+            questionThree: req.body.food,  
+          });
+          user.save((err, para2) => {
+            //returns err if theres an error
+            if(err) {
+              console.error(err);
+              let lastVisited = req.cookies.createAccountLastVisited;
+              res.cookie("createAccountLastVisited", `${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}`)
+              
+              res.render('createAccount', {
+                errorMessage: "Creating Account Failed",
+                config: config,
+                cookie: lastVisited
+
+              });
+            } else {
+              res.redirect('/')
+            };
+            console.log(req.body.username + ' added.');
+          });
         });
-        user.save((err, para2) => {
-          //returns err if theres an error
-          if(err) {
-            console.error(err),
-            res.render('/createAccount', {
-              errorMessage: "Creating Account Failed"
-            });
-          } else {
-            res.redirect('/')
-          };
-          console.log(req.body.username + ' added.');
-        });
-      });
-  });
+    });
+  }
 };
 //Checking for user Authenitcation
 exports.loginAuth = (req,res) => {
+  if(req.body && req.body.password && req.body.username){
     User.find({username: req.body.username}, (err,user) => {
-      bcrypt.compare(req.body.password, user[0].password, (err, res1) => {
-        if(res1 === true){
-          res.render("home", {title: "home page", config: config})
-        } else {
-          //res.render("login", {title: "login page", config: config})
-          res.redirect('/');
-        }
-      });
+      if (user[0]){
+        bcrypt.compare(req.body.password, user[0].password, (err, res1) => {
+          if(res1 === true){
+            let lastVisited = req.cookies.homeLastVisited;
+            res.cookie("homeLastVisited", `${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}`)
+            res.render("home", {
+              title: "home page",
+              config: config,
+              cookie: lastVisited,
+              });
+          } else {
+            //res.render("login", {title: "login page", config: config})
+            res.redirect('/');
+          }
+        });
+      }else{
+        res.redirect('/')
+      }
     });
- };
-
-//  app.post('/', urlEncodedParser, (req,res) => {
-//   console.log(req.body.username);
-//   if(req.body.username == 'user' && req.body.password =='pass') {
-//       req.session.user = {
-//           isAuthenticated: true,
-//           username: req.body.username
-//       }
-//       res.redirect('/private');
-//   } else {
-//       res.redirect('/');
-//   }
-// });
+  } else {
+    res.redirect('/');
+  }
+};

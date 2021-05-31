@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const routes = require('./routes/routes');
 const path = require('path');
 const cors = require('cors');
+const cookie = require('cookie-parser');
 
 const app = express();
 
@@ -11,7 +12,7 @@ app.set('view engine', 'pug');
 app.set('views', __dirname + '/views');
 app.use(express.static(path.join(__dirname, '/public')));
 
-app.use(cors());
+app.use(cors(), cookie());
 
 app.set('view engine', 'pug');
 app.set('views', __dirname + '/views');
@@ -27,7 +28,7 @@ app.get('/', urlencodedParser, routes.login);
 app.get('/home', urlencodedParser, routes.home);
 app.get('/createAccount', routes.createAccount);
 app.post('/createAccount', urlencodedParser, routes.makeHash);
-app.post('/login', urlencodedParser ,routes.loginAuth)
+app.post('/login', urlencodedParser ,routes.loginAuth);
 
 //:id is a parameter
 

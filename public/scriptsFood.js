@@ -20,7 +20,7 @@ const dataFood = {
 
   const configFood = {
     type: 'pie',
-    dataFood,
+    data: dataFood,
     options: {}
   };
 

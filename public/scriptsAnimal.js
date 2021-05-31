@@ -14,17 +14,19 @@ const dataAnimal = {
         'rgb(255, 205, 86)',
         '#daddad'
       ],
-      hoverOffset: 1000
+      hoverOffset: 50
     }]
   };
+  const ctxAnimal = document.getElementById("animalChart").getContext("2d");
 
   const configAnimal = {
     type: 'pie',
-    dataAnimal,
+    data: dataAnimal,
     options: {}
   };
 
-  var animalChart = new Chart(
+   var animalChart = new Chart(
     document.getElementById('animalChart'),
-    configAnimal
+    configAnimal,
   );
+

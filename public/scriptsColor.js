@@ -20,7 +20,7 @@ const dataColor = {
 
   const configColor = {
     type: 'pie',
-    dataColor,
+    data: dataColor,
     options: {}
   };
 
