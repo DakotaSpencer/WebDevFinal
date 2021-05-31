@@ -4,17 +4,8 @@ const bodyParser = require('body-parser');
 const routes = require('./routes/routes');
 const path = require('path');
 const cors = require('cors');
-const cookie = require('cookie-parser');
-const session = require('express-session');
 
 const app = express();
-
-app.use(session({
-    secret: ':)',
-    resave: false,
-    saveUninitialized: true,
-    cookie: {}
-}));
 
 app.set('view engine', 'pug');
 app.set('views', __dirname + '/views');
@@ -32,18 +23,9 @@ let urlencodedParser = bodyParser.urlencoded({
 
 //app.get('/api', routes.index);
 
-app.get('/', routes.login);
+app.get('/', urlencodedParser, routes.login);
 app.get('/home', routes.home);
 app.get('/createAccount', routes.createAccount);
 app.post('/createAccount', urlencodedParser, routes.makeHash);
-app.post('/login', urlencodedParser ,routes.loginAuth);
-app.get('/editAccount', routes.editUser);
-app.post('/editAccount',urlencodedParser, routes.editPerson);
-
-//:id is a parameter
-
-//Routes.editperosn is running a method, which is called whenever something uses the POST method with an action of the same value
-
-//deletes based on ID
 
 app.listen(3000);
