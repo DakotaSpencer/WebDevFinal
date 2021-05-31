@@ -1,5 +1,7 @@
 const dbPath = "mongodb+srv://JWilliams1233:pass~word@cluster0.ujp1m.mongodb.net/Users?retryWrites=true&w=majority"
 
+const bcrypt = require('bcryptjs');
+
 const config = require('../config');
 
 const mongoose = require('mongoose');
@@ -16,7 +18,7 @@ mdb.once('open', callBack => {});
 
 let userSchema = mongoose.Schema({
     username: String,
-    password: String, 
+     password: String, 
     email: String, 
     age: String,
 });
@@ -47,7 +49,7 @@ exports.createAccount = (req, res) => {
     //res.redirect('/createAccount')
 };
 
-const makeHash = theString => {
+exports.makeHash = (req,res) => {
   bcrypt.genSalt(10, (err, salt) => {
       bcrypt.hash(req.body.password, salt, (err, myHash) => {
         let user = new User({
@@ -56,7 +58,7 @@ const makeHash = theString => {
           email: req.body.email,
           age: req.body.age
         });
-        user.save((err, user) => {
+        user.save((err, para2) => {
           //returns err if theres an error
           if(err) {
             console.error(err),
@@ -66,26 +68,14 @@ const makeHash = theString => {
           } else {
             res.redirect('/')
           };
-          //console.log(req.body.name + ' added.');
-          //All that is needed to save this to a database
-          //redirects back to the homepage
+          console.log(req.body.username + ' added.');
         });
       });
   });
 };
-  
-exports.createPerson = (req, res) => {
-    //Form used to get data
-    //person passes in an object
-    makeHash.user
-  
-    user.save((err, user) => {
-      //returns err if theres an error
-      if(err) return console.error(err);
-  
-      console.log(req.body.name + ' added.');
-      //All that is needed to save this to a database
-      //redirects back to the homepage
-    });
-    res.redirect('/');
-  };
+//Checking for user Authenitcation
+exports.loginAuth = (req,res) => {
+    User.findById(req.params.id, (err,user) => {
+      bcrypt.compare(req.params.password)
+    })
+ };

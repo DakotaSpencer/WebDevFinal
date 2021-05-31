@@ -13,6 +13,10 @@ app.use(express.static(path.join(__dirname, '/public')));
 
 app.use(cors());
 
+app.set('view engine', 'pug');
+app.set('views', __dirname + '/views');
+app.use(express.static(path.join(__dirname, '/public')));
+
 let urlencodedParser = bodyParser.urlencoded({
     extended: true
 });
@@ -22,6 +26,6 @@ let urlencodedParser = bodyParser.urlencoded({
 app.get('/', urlencodedParser, routes.login);
 app.get('/home', routes.home);
 app.get('/createAccount', routes.createAccount);
-app.post('/createAccount', urlencodedParser, routes.createPerson);
+app.post('/createAccount', urlencodedParser, routes.makeHash);
 
 app.listen(3000);
