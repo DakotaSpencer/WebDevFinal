@@ -14,7 +14,7 @@ const dataFood = {
         'rgb(255, 205, 86)',
         '#daddad'
       ],
-      hoverOffset: 1000
+      hoverOffset: 50
     }]
   };
 
