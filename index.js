@@ -41,7 +41,7 @@ app.get('/logout', routes.logout);
 
 //:id is a parameter
 
-//Routes.editperosn is running a method, which is called whenever something uses the POST method with an action of the same value
+//Routes.editperson is running a method, which is called whenever something uses the POST method with an action of the same value
 
 //deletes based on ID
 
