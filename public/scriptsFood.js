@@ -1,13 +1,13 @@
 const dataFood = {
     labels: [
-      'Red',
+      'red',
       'Blue',
       'Yellow',
       'Green'
     ],
     datasets: [{
       label: 'My First Dataset',
-      data: [],
+      data: [1,1,1,1],
       backgroundColor: [
         'rgb(255, 99, 132)',
         'rgb(54, 162, 235)',
