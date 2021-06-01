@@ -1,6 +1,7 @@
 extends layout 
 
 block content
+<<<<<<< Updated upstream
         form(id='userform' method='POST' action='/login')  
                 p Please login for a cookie :]
                 p Username: 
@@ -9,3 +10,14 @@ block content
                         input(type="text" name='password' required)
                 p 
                 input(type="submit" value='Login')
+=======
+        div#container
+                form(id='form' method='POST' action='/login')  
+                        h1 Please login for a cookie :]
+                        p Username: 
+                                input(type="text" name="username" required)
+                        p Password: 
+                                input(type="text" name='password' required)
+                        p 
+                        input(type="submit" value='Login' class="btn")
+>>>>>>> Stashed changes

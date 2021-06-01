@@ -10,11 +10,19 @@ html
               div(class="btn")
                 li(id=item[0]) #{item[0]}
           if user 
+<<<<<<< Updated upstream
             a(href='/editAccount')
               div(class="btn")
                 li(id="editAccount") Edit
+=======
+            div(class="logout")
+              form(method="get" action="/logout")
+                input(type="submit" id="btn" class="btn" href='/logout' value="Logout")
+              form(method="get" action='/editAccount')
+                input(type="submit" id="btn" class="btn" href='/editAccount' value="Edit")
+>>>>>>> Stashed changes
   body
-      
     section 
       block content
-      p Last Time Visited#{cookie}
+      footer
+        h1 Last Time Visited#{cookie}
