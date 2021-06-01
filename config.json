@@ -3,6 +3,7 @@
         ["Home", "/home", ""],
         ["Login", "/"],
         ["Create", "/createAccount"],
-        ["Edit", "/editAccount"]
+        ["Edit", "/editAccount"],
+        ["Logout", "/logout"]
     ]
 }
