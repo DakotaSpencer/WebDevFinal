@@ -1,7 +1,5 @@
 const dbPath = "mongodb+srv://JWilliams1233:pass~word@cluster0.ujp1m.mongodb.net/Users?retryWrites=true&w=majority"
-
 const bcrypt = require('bcryptjs');
-
 const config = require('../config');
 
 const mongoose = require('mongoose');
@@ -18,14 +16,18 @@ mdb.once('open', callBack => {});
 
 let userSchema = mongoose.Schema({
     username: String,
-     password: String, 
+    password: String, 
     email: String, 
     age: String,
+    questionOne: String,
+    questionTwo: String,
+    questionThree: String,
 });
 
 let User = mongoose.model('User_Collection', userSchema);
 
 exports.login = (req,res) => {
+  let lastVisited = req.cookies.LoginLastVisited;
     res.render('login', {
       title: 'Login',
       config: config,
@@ -37,6 +39,8 @@ exports.login = (req,res) => {
 }
 
 exports.home = (req, res) => {
+  let lastVisited = req.cookies.HomeLastVisited;
+  res.cookie("HomeLastVisited", `${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}`)
     res.render('home', {
       title: 'Home',
       config: config,
@@ -46,6 +50,8 @@ exports.home = (req, res) => {
 };
 
 exports.createAccount = (req, res) => {
+  let lastVisited = req.cookies.CreateLastVisited;
+  res.cookie("CreateLastVisited", `${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}`)
     res.render('createAccount', {
       title: 'Create an Account',
       config: config,
@@ -87,32 +93,26 @@ exports.makeHash = (req,res) => {
             console.log(req.body.username + ' added.');
           });
         });
-        user.save((err, para2) => {
-          //returns err if theres an error
-          if(err) {
-            console.error(err),
-            res.render('/createAccount', {
-              errorMessage: "Creating Account Failed"
-            });
-          } else {
-            res.redirect('/')
-          };
-          console.log(req.body.username + ' added.');
-        });
-      });
-  };
+        
+    });
+  }
 };
 //Checking for user Authenitcation
 exports.loginAuth = (req,res) => {
   if(req.body && req.body.password && req.body.username){
     User.find({username: req.body.username}, (err,user) => {
-      if (user && user[0]){
+      if (user[0]){
         bcrypt.compare(req.body.password, user[0].password, (err, res1) => {
           if(res1 === true){
-            req.session.user = user[0];
             let lastVisited = req.cookies.homeLastVisited;
             res.cookie("homeLastVisited", `${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}`)
-            res.redirect("/home")
+            req.session.user = user[0];
+            res.render("home", {
+              title: "home page",
+              config: config,
+              cookie: lastVisited,
+              user: req.session.user
+              });
           } else {
             //res.render("login", {title: "login page", config: config})
             res.redirect('/');
@@ -130,6 +130,7 @@ exports.loginAuth = (req,res) => {
 exports.editUser = (req, res) => {
   let lastVisited = req.cookies.editLastVisited;
   res.cookie("editLastVisited", `${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}`)
+  console.log(req.session.user)
   res.render('editPerson', {
     title: "Edit User",
     config: config,
@@ -137,6 +138,7 @@ exports.editUser = (req, res) => {
     user: req.session.user
   })
 }
+//make post, redirect to homepage, then destroy session
 
 exports.editPerson = (req, res) => {
   //Reads frin database
@@ -151,8 +153,13 @@ exports.editPerson = (req, res) => {
     user.questionThree= req.body.food;
     user.save((err, user) => {
       if(err) return console.error(err);
-      console.log(req.body.name + ' updated.');
+      console.log(req.user.username + ' updated.');
     });
     res.redirect('/');
   })
 };
+
+exports.logout = (req, res) => {
+  req.session.destroy();
+  res.redirect('/')
+}

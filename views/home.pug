@@ -1,6 +1,13 @@
 extends layout 
 
 block content
-    div(class="chart")
-        canvas(id="myChart")
-    script(src="https://cdn.jsdelivr.net/npm/chart.js")
+    p Home page 
+    link(rel='stylesheet' href='style.css')
+    .chart
+    canvas#animalChart
+    canvas#colorChart
+    canvas#foodChart
+    script(src='https://cdn.jsdelivr.net/npm/chart.js')
+    script(src='scriptsAnimal.js')
+    script(src='scriptsColor.js')
+    script(src='scriptsFood.js')
