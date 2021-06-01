@@ -11,10 +11,11 @@ html
                 li(id=item[0]) #{item[0]}
           if user 
             div(class="logout")
-              a(href='/logout') Logout
+              form(method="get" action="/logout")
+                input(type="submit" id="btn" class="btn" href='/logout' value="logout")
             a(href='/editAccount')
               div(class="btn")
-                li(id="editAccount") Edit
+                li(id="btn") Edit
   body
       
     section 
