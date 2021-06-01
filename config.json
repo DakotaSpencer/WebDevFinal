@@ -1,12 +1,7 @@
 {
     "menu": [
-<<<<<<< Updated upstream
         ["Home", "/home", ""],
         ["Login", "/"],
-=======
-        ["Login", "/", ""],
-        ["Home", "/home"],
->>>>>>> Stashed changes
         ["Create", "/createAccount"]
     ]
 }
