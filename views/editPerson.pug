@@ -2,7 +2,7 @@ extends layout
 
 block content
     h1 Create an Account
-    form(id='form' method='POST' action='/editAccount')
+    form(id='userForm' method='POST' action='/editAccount')
         input(type="hidden" name="id" value=user.id)
         p Username: 
             input(type="text" name="username" id="username" value=user.username)
@@ -12,31 +12,33 @@ block content
             input(type="text" name='age' value=user.age)
         h2 Please Answer all 3 questions
                 h3 What is your favorite animals
-                    input(type="radio" id="dog" name="animal" value="dog" selected=user.questionOne==="dog"?"true":null)
+                    input(type="radio" id="dog" name="animal" value="dog" checked=user.questionOne==="dog"?"true":null)
                     label(for="dog") dog
-                    input(type="radio" id="cat" name="animal" value="cat" selected=user.questionOne==="cat"?"true":null)
+                    input(type="radio" id="cat" name="animal" value="cat" checked=user.questionOne==="cat"?"true":null)
                     label(for="cat") cat
-                    input(type="radio" id="fish" name="animal" value="fish" selected=user.questionOne==="fish"?"true":null)
+                    input(type="radio" id="fish" name="animal" value="fish" checked=user.questionOne==="fish"?"true":null)
                     label(for="fish") fish
-                    input(type="radio" id="bird" name="animal" value="bird" selected=user.questionOne==="bird"?"true":null)
+                    input(type="radio" id="bird" name="animal" value="bird" checked=user.questionOne==="bird"?"true":null)
                     label(for="bird") bird
                 h3 What is your favorite color
-                    input(type="radio" id="pink" name="color" value="pink" selected=user.questionTwo==="pink"?"true":null)
+                    input(type="radio" id="pink" name="color" value="pink" checked=user.questionTwo==="pink"?"true":null)
                     label(for="pink") pink 
-                    input(type="radio" id="orange" name="color" value="orange" selected=user.questionTwo==="orange"?"true":null)
+                    input(type="radio" id="orange" name="color" value="orange" checked=user.questionTwo==="orange"?"true":null)
                     label(for="orange") orange
-                    input(type="radio" id="purple" name="color" value="purple" selected=user.questionTwo==="purple"?"true":null)
+                    input(type="radio" id="purple" name="color" value="purple" checked=user.questionTwo==="purple"?"true":null)
                     label(for="purple") purple 
-                    input(type="radio" id="limeGreen" name="color" value="limeGreen" selected=user.questionTwo==="limeGreen"?"true":null)
+                    input(type="radio" id="limeGreen" name="color" value="limeGreen" checked=user.questionTwo==="limeGreen"?"true":null)
                     label(for="limeGreen") lime green
                 h3 What is your favorite food 
-                    input(type="radio" id="pizza" name="food" value="pizza" selected=user.questionThree==="pizza"?"true":null)
+                    input(type="radio" id="pizza" name="food" value="pizza" checked=user.questionThree==="pizza"?"true":null)
                     label(for="pizza") pizza
-                    input(type="radio" id="burger" name="food" value="burger" selected=user.questionThree==="burger"?"true":null)
+                    input(type="radio" id="burger" name="food" value="burger" checked=user.questionThree==="burger"?"true":null)
                     label(for="burger") burger
-                    input(type="radio" id="chickenNugget" name="food" value="chickenNugget" selected=user.questionThree==="chickenNugget"?"true":null)
+                    input(type="radio" id="chickenNugget" name="food" value="chickenNugget" checked=user.questionThree==="chickenNugget"?"true":null)
                     label(for="chickenNugget") chicken nuggets
-                    input(type="radio" id="nachoes" name="food" value="nachoes" selected=user.questionThree==="nachoes"?"true":null)
+                    input(type="radio" id="nachoes" name="food" value="nachoes" checked=user.questionThree==="nachoes"?"true":null)
                     label(for="nachoes") nachoes
         p 
             input(type="submit" value='Create Account')
+
+        p #{user.password}

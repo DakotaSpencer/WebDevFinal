@@ -20,7 +20,7 @@ app.set('view engine', 'pug');
 app.set('views', __dirname + '/views');
 app.use(express.static(path.join(__dirname, '/public')));
 
-app.use(cors());
+app.use(cors(), cookie());
 
 app.set('view engine', 'pug');
 app.set('views', __dirname + '/views');
@@ -30,15 +30,14 @@ let urlencodedParser = bodyParser.urlencoded({
     extended: true
 });
 
-//app.get('/api', routes.index);
-
-app.get('/', routes.login);
-app.get('/home', routes.home);
+app.get('/', urlencodedParser, routes.login);
+app.get('/home', urlencodedParser, routes.home);
 app.get('/createAccount', routes.createAccount);
 app.post('/createAccount', urlencodedParser, routes.makeHash);
 app.post('/login', urlencodedParser ,routes.loginAuth);
 app.get('/editAccount', routes.editUser);
 app.post('/editAccount',urlencodedParser, routes.editPerson);
+app.get('/logout', routes.logout);
 
 //:id is a parameter
 
