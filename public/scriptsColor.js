@@ -1,3 +1,7 @@
+let url = 'http://localhost:3000/api'
+
+let data;
+
 const dataColor = {
     labels: [
       'Red',
