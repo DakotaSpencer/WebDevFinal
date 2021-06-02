@@ -1,12 +1,11 @@
 extends layout 
 //-dont know if this stuff works
-block content
-    p Home page 
+block content 
     link(rel='stylesheet' href='style.css')
-    .chart
-    canvas#animalChart
-    canvas#colorChart
-    canvas#foodChart
+    //-.chart
+    canvas(id="animalChart" class="chart")
+    canvas(id="colorChart" class="chart")
+    canvas(id="foodChart" class="chart")
     script(src='https://cdn.jsdelivr.net/npm/chart.js')
     script(src='scriptsAnimal.js')
     script(src='scriptsColor.js')

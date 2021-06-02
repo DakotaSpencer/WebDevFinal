@@ -17,7 +17,6 @@ const dataAnimal = {
       hoverOffset: 50
     }]
   };
-  const ctxAnimal = document.getElementById("animalChart").getContext("2d");
 
   const configAnimal = {
     type: 'pie',
@@ -25,7 +24,7 @@ const dataAnimal = {
     options: {}
   };
 
-   var animalChart = new Chart(
+  var animalChart = new Chart(
     document.getElementById('animalChart'),
     configAnimal,
   );
