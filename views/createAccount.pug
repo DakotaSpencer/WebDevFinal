@@ -13,7 +13,8 @@ block content
         p Age: 
             input(type="text" name='age')
         h2 Please Answer all 3 questions
-                h3 What is your favorite animals
+            h3 What is your favorite animal?
+                div(class="radio-toolbar")
                     input(type="radio" id="dog" name="animal" value="dog" class="radio")
                     label(for="dog") dog
                     input(type="radio" id="cat" name="animal" value="cat" class="radio")
@@ -22,7 +23,8 @@ block content
                     label(for="fish") fish
                     input(type="radio" id="bird" name="animal" value="bird" class="radio")
                     label(for="bird") bird
-                h3 What is your favorite color
+            h3 What is your favorite color?
+                div(class="radio-toolbar")
                     input(type="radio" id="pink" name="color" value="pink" class="radio")
                     label(for="pink") pink 
                     input(type="radio" id="orange" name="color" value="orange" class="radio")
@@ -31,7 +33,8 @@ block content
                     label(for="purple") purple 
                     input(type="radio" id="limeGreen" name="color" value="limeGreen" class="radio")
                     label(for="limeGreen") lime green
-                h3 What is your favorite food 
+            h3 What is your favorite food?
+                div(class="radio-toolbar")
                     input(type="radio" id="pizza" name="food" value="pizza" class="radio")
                     label(for="pizza") pizza
                     input(type="radio" id="burger" name="food" value="burger" class="radio")

@@ -1,28 +1,27 @@
-doctype 
-html 
-  head 
-    title=title
-    div(id="stars" class="star")
-    div(id="stars2" class="star")
-    div(id="stars3" class="star")
-    style.
-      @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
-    link(rel = 'stylesheet' href = 'style.css')
-    nav  
-      if !user
-        each item in config.menu 
-          a(href=item[1] target = item[2])
-            div(class="btn" id="nav")
-              li(id=item[0]) #{item[0]}
-      else 
-        div(class="logout")
-          a(id="nav" class="btn" href='/home') Home
-          a(id="nav" class="btn" href='/editAccount') Edit
-          a(id="nav" class="btn" href='/logout') Logout
-              
-              
-  body
-    section 
-      block content
+doctype html
+head 
+  div(id="stars" class="star")
+  div(id="stars2" class="star")
+  div(id="stars3" class="star")
+  style.
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+  link(rel = 'stylesheet' href = 'style.css')
+  nav  
+    if !user
+      each item in config.menu 
+        a(href=item[1] target = item[2])
+          div(class="btn" id="nav")
+            li(id=item[0]) #{item[0]}
+    else 
+      div(class="logout")
+        a(id="nav" class="btn" href='/home') Home
+        a(id="nav" class="btn" href='/editAccount') Edit
+        a(id="nav" class="btn" href='/logout') Logout    
+        
+  title=title
+body
+  section 
+    block content
+    if user
       footer
-        h1 Last Time Visited#{cookie}
+        h1(class="lastVisit") Last Time Visited: #{cookie}

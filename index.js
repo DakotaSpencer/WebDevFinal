@@ -30,8 +30,8 @@ let urlencodedParser = bodyParser.urlencoded({
     extended: true
 });
 
-app.get('/', urlencodedParser, routes.login);
-app.get('/home', urlencodedParser, routes.home);
+app.get('/', routes.login);
+app.get('/home', routes.home);
 app.get('/createAccount', routes.createAccount);
 app.post('/createAccount', urlencodedParser, routes.makeHash);
 app.post('/login', urlencodedParser ,routes.loginAuth);
