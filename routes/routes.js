@@ -145,7 +145,10 @@ exports.editPerson = (req, res) => {
   User.findById(req.body.id, (err, user) => {
     if(err) return console.error(err);
     user.username= req.body.username;
-    //user.password= myHash,
+    if(req.body.password){
+      let myHash = bcrypt.hashSync(req.body.password);
+      user.password= myHash
+    }
     user.email= req.body.email;
     user.age= req.body.age;
     user.questionOne= req.body.animal;
@@ -153,7 +156,7 @@ exports.editPerson = (req, res) => {
     user.questionThree= req.body.food;
     user.save((err, user) => {
       if(err) return console.error(err);
-      console.log(req.user.username + ' updated.');
+      //console.log(req.user.username + ' updated.');
     });
     res.redirect('/');
   })

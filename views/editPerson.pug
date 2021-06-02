@@ -3,7 +3,7 @@ extends layout
 block content
     h1 Create an Account
     form(id='form' method='POST' action='/editAccount')
-        input(type="hidden" name="id" value=user.id)
+        input(type="hidden" name="id" value=user._id)
         p Username: 
             input(type="text" name="username" id="username" value=user.username)
         p Password: 
