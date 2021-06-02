@@ -1,18 +1,18 @@
 const dataFood = {
     labels: [
-      'red',
-      'Blue',
-      'Yellow',
-      'Green'
+      'Pizza',
+      'Burger',
+      'Chicken Nuggests',
+      'Nachoes'
     ],
     datasets: [{
       label: 'My First Dataset',
       data: [1,1,1,1],
       backgroundColor: [
-        'rgb(255, 99, 132)',
-        'rgb(54, 162, 235)',
-        'rgb(255, 205, 86)',
-        '#daddad'
+        'pink',
+        'rgb(255,165,0)',
+        'purple',
+        'rgb(50,205,50)'
       ],
       hoverOffset: 50
     }]
