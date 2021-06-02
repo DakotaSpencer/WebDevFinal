@@ -38,10 +38,11 @@ app.post('/login', urlencodedParser ,routes.loginAuth);
 app.get('/editAccount', routes.editUser);
 app.post('/editAccount',urlencodedParser, routes.editPerson);
 app.get('/logout', routes.logout);
+app.get('/api', routes.api);
 
 //:id is a parameter
 
-//Routes.editperosn is running a method, which is called whenever something uses the POST method with an action of the same value
+//Routes.editperson is running a method, which is called whenever something uses the POST method with an action of the same value
 
 //deletes based on ID
 
