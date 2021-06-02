@@ -9,19 +9,19 @@ fetch(url).then(response => response.json()).then(data => {
 
 const dataAnimal = {
     labels: [
-      'Red',
-      'Blue',
-      'Yellow',
-      'Green'
+      'Dog',
+      'Cat',
+      'Fish',
+      'Bird'
     ],
     datasets: [{
       label: 'My First Dataset',
       data: [4,2,6,5],
       backgroundColor: [
-        'rgb(255, 99, 132)',
-        'rgb(54, 162, 235)',
-        'rgb(255, 205, 86)',
-        '#daddad'
+        'pink',
+        'rgb(255,165,0)',
+        'purple',
+        'rgb(50,205,50)'
       ],
       hoverOffset: 50
     }]
