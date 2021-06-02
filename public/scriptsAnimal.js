@@ -16,19 +16,19 @@ fetch(url).then(response => response.json()).then(data => {
   });
   const dataAnimal = {
     labels: [
-      'Red',
-      'Blue',
-      'Yellow',
-      'Green'
+      'Dog',
+      'Cat',
+      'Fish',
+      'Bird'
     ],
     datasets: [{
       label: 'Favorite Animal',
       data: questions,
       backgroundColor: [
-        'rgb(255, 99, 132)',
-        'rgb(54, 162, 235)',
-        'rgb(255, 205, 86)',
-        '#daddad'
+        '#696969',
+        '#00FFFF',
+        '#fed8b1',
+        '#0000FF'
       ],
       hoverOffset: 50
     }]
