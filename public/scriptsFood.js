@@ -1,13 +1,21 @@
-// let url = "http://localhost:3000/api";
+let url3 = "http://localhost:3000/api";
 
-// fetch(url).then(response => response.json()).then(data => {
-//   console.log(data)
-//   data.User.forEach(element => {
-
-//   });
-// });
-
-const dataFood = {
+fetch(url3).then(response => response.json()).then(data => {
+  console.log(data)
+  let questions = [0,0,0,0]
+  data.User.forEach(element => {
+    console.log(element)
+    if(element.questionThree === "pizza"){
+      questions[0]++
+    }else if(element.questionThree === "burger"){
+      questions[1]++
+    }else if(element.questionThree === "chickenNugget"){
+      questions[2]++
+    }else if(element.questionThree === "nachoes"){
+      questions[3]++
+    }
+  });
+  const dataFood = {
     labels: [
       'Pizza',
       'Burger',
@@ -37,3 +45,5 @@ const dataFood = {
     document.getElementById('foodChart'),
     configFood
   );
+});
+
