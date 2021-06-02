@@ -46,7 +46,7 @@ exports.home = (req, res) => {
       config: config,
       cookie: lastVisited,
       user: req.session.user
-    })
+    });
 };
 
 exports.createAccount = (req, res) => {

@@ -14,7 +14,7 @@ const dataColor = {
         'rgb(255, 205, 86)',
         '#daddad'
       ],
-      hoverOffset: 1000
+      hoverOffset: 50
     }]
   };
 
@@ -24,7 +24,7 @@ const dataColor = {
     options: {}
   };
 
-  const colorChart = new Chart(
+  var colorChart = new Chart(
     document.getElementById('colorChart'),
     configColor
   );
