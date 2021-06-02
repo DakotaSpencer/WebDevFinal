@@ -24,7 +24,7 @@ const dataColor = {
     options: {}
   };
 
-  const colorChart = new Chart(
+  var colorChart = new Chart(
     document.getElementById('colorChart'),
     configColor
   );
