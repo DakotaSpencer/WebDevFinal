@@ -13,32 +13,35 @@ block content
         p Age: 
             input(type="text" name='age')
         h2 Please Answer all 3 questions
-                h3 What is your favorite animals
-                    input(type="radio" id="dog" name="animal" value="dog")
+            h3 What is your favorite animal?
+                div(class="radio-toolbar")
+                    input(type="radio" id="dog" name="animal" value="dog" class="radio")
                     label(for="dog") dog
-                    input(type="radio" id="cat" name="animal" value="cat")
+                    input(type="radio" id="cat" name="animal" value="cat" class="radio")
                     label(for="cat") cat
-                    input(type="radio" id="fish" name="animal" value="fish")
+                    input(type="radio" id="fish" name="animal" value="fish" class="radio")
                     label(for="fish") fish
-                    input(type="radio" id="bird" name="animal" value="bird")
+                    input(type="radio" id="bird" name="animal" value="bird" class="radio")
                     label(for="bird") bird
-                h3 What is your favorite color
-                    input(type="radio" id="pink" name="color" value="pink")
+            h3 What is your favorite color?
+                div(class="radio-toolbar")
+                    input(type="radio" id="pink" name="color" value="pink" class="radio")
                     label(for="pink") pink 
-                    input(type="radio" id="orange" name="color" value="orange")
+                    input(type="radio" id="orange" name="color" value="orange" class="radio")
                     label(for="orange") orange
-                    input(type="radio" id="purple" name="color" value="purple")
+                    input(type="radio" id="purple" name="color" value="purple" class="radio")
                     label(for="purple") purple 
-                    input(type="radio" id="limeGreen" name="color" value="limeGreen")
+                    input(type="radio" id="limeGreen" name="color" value="limeGreen" class="radio")
                     label(for="limeGreen") lime green
-                h3 What is your favorite food 
-                    input(type="radio" id="pizza" name="food" value="pizza")
+            h3 What is your favorite food?
+                div(class="radio-toolbar")
+                    input(type="radio" id="pizza" name="food" value="pizza" class="radio")
                     label(for="pizza") pizza
-                    input(type="radio" id="burger" name="food" value="burger")
+                    input(type="radio" id="burger" name="food" value="burger" class="radio")
                     label(for="burger") burger
-                    input(type="radio" id="chickenNugget" name="food" value="chickenNugget")
+                    input(type="radio" id="chickenNugget" name="food" value="chickenNugget" class="radio")
                     label(for="chickenNugget") chicken nuggets
-                    input(type="radio" id="nachoes" name="food" value="nachoes")
+                    input(type="radio" id="nachoes" name="food" value="nachoes" class="radio")
                     label(for="nachoes") nachoes
-        p 
-            input(type="submit" value='Create Account')
+        nav 
+            input(type="submit" value='Create' class="btn")
