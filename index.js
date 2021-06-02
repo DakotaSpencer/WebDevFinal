@@ -38,6 +38,7 @@ app.post('/login', urlencodedParser ,routes.loginAuth);
 app.get('/editAccount', routes.editUser);
 app.post('/editAccount',urlencodedParser, routes.editPerson);
 app.get('/logout', routes.logout);
+app.get('/api', routes.api);
 
 //:id is a parameter
 

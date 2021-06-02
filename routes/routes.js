@@ -163,3 +163,11 @@ exports.logout = (req, res) => {
   req.session.destroy();
   res.redirect('/')
 }
+
+exports.api = (req, res) => {
+  User.find((err, user) => {
+      res.json({
+        User: user
+      });
+  });
+};
