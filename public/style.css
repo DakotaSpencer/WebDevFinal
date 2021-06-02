@@ -184,7 +184,7 @@ a {
 .chart{
     display: inline-block;
     position: relative;
-    max-width: 500px;
+    max-width: min-content;
     max-height: 500px;
     align-items: center;
     margin: auto;
