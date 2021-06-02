@@ -7,7 +7,7 @@ const dataFood = {
     ],
     datasets: [{
       label: 'My First Dataset',
-      data: [],
+      data: [4,2,6,5],
       backgroundColor: [
         'rgb(255, 99, 132)',
         'rgb(54, 162, 235)',

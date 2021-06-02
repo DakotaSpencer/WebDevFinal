@@ -1,7 +1,3 @@
-let url = 'http://localhost:3000/api'
-
-let data;
-
 const dataColor = {
     labels: [
       'Red',
@@ -28,7 +24,7 @@ const dataColor = {
     options: {}
   };
 
-  const colorChart = new Chart(
+  var colorChart = new Chart(
     document.getElementById('colorChart'),
     configColor
   );

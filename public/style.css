@@ -136,6 +136,16 @@ input[type=text]{
 
 .logout {
     position: relative;
+    display: inline-block;
+}
+
+a {
+    text-decoration: none;
+}
+
+#nav {
+    position: relative;
+    display: inline-block;
 }
 
 .btn{
@@ -162,4 +172,18 @@ input[type=text]{
 .btn:hover{
     background-color: #92a1d6;
     transition: background-color 0.3s linear;
+}
+
+.chart{
+    display: inline-block;
+    position: relative;
+    max-width: 500px;
+    max-height: 500px;
+    align-items: center;
+    margin: auto;
+    padding: auto;
+}
+
+canvas {
+    width: fit-content;
 }
