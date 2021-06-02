@@ -19,17 +19,17 @@ fetch(url3).then(response => response.json()).then(data => {
     labels: [
       'Pizza',
       'Burger',
-      'Chicken Nugget',
+      'Chicken Nuggests',
       'Nachoes'
     ],
     datasets: [{
-      label: 'Favorite Food',
-      data: questions,
+      label: 'My First Dataset',
+      data: [1,1,1,1],
       backgroundColor: [
-        '#8B0000',
-        '#964B00',
-        '#FFA500',
-        '#FFFF00'
+        'pink',
+        'rgb(255,165,0)',
+        'purple',
+        'rgb(50,205,50)'
       ],
       hoverOffset: 50
     }]

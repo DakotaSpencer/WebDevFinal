@@ -26,10 +26,10 @@ fetch(url2).then(response => response.json()).then(data => {
       label: 'Favorite Color',
       data: questions,
       backgroundColor: [
-        '#FF69B4',
-        '#FFA500',
-        '#800080',
-        '#32CD32'
+        'pink',
+        'rgb(255,165,0)',
+        'purple',
+        'rgb(50,205,50)'
       ],
       hoverOffset: 50
     }]

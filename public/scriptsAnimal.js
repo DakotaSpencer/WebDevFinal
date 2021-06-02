@@ -25,10 +25,10 @@ fetch(url).then(response => response.json()).then(data => {
       label: 'Favorite Animal',
       data: questions,
       backgroundColor: [
-        '#696969',
-        '#00FFFF',
-        '#fed8b1',
-        '#0000FF'
+        'pink',
+        'rgb(255,165,0)',
+        'purple',
+        'rgb(50,205,50)'
       ],
       hoverOffset: 50
     }]
