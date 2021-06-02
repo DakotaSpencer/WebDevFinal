@@ -17,19 +17,19 @@ fetch(url3).then(response => response.json()).then(data => {
   });
   const dataFood = {
     labels: [
-      'Red',
-      'Blue',
-      'Yellow',
-      'Green'
+      'Pizza',
+      'Burger',
+      'Chicken Nugget',
+      'Nachoes'
     ],
     datasets: [{
       label: 'Favorite Food',
       data: questions,
       backgroundColor: [
-        'rgb(255, 99, 132)',
-        'rgb(54, 162, 235)',
-        'rgb(255, 205, 86)',
-        '#daddad'
+        '#8B0000',
+        '#964B00',
+        '#FFA500',
+        '#FFFF00'
       ],
       hoverOffset: 50
     }]
