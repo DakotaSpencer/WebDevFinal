@@ -2,12 +2,19 @@ let url = "http://localhost:3000/api";
 
 fetch(url).then(response => response.json()).then(data => {
   console.log(data)
-  data.User[5].forEach(element => {
-
+  let questions = [0,0,0,0]
+  data.User.forEach(element => {
+    console.log(element)
+    if(element.questionOne === "dog"){
+      questions[0]++
+    }else if(element.questionOne === "cat"){
+        questions[1]++
+    }else if(element.questionOne === "fish"){
+      questions[2]++
+    }else if(element.questionOne === "bird")
+    questions[3]++
   });
-});
-
-const dataAnimal = {
+  const dataAnimal = {
     labels: [
       'Red',
       'Blue',
@@ -15,8 +22,8 @@ const dataAnimal = {
       'Green'
     ],
     datasets: [{
-      label: 'My First Dataset',
-      data: [4,2,6,5],
+      label: 'Favorite Animal',
+      data: questions,
       backgroundColor: [
         'rgb(255, 99, 132)',
         'rgb(54, 162, 235)',
@@ -37,4 +44,6 @@ const dataAnimal = {
     document.getElementById('animalChart'),
     configAnimal,
   );
+});
+
 
