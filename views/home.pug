@@ -3,11 +3,13 @@ extends layout
 block content 
     link(rel='stylesheet' href='style.css')
     //-.chart
-  
-    canvas(id="animalChart" class="chart")
-    canvas(id="colorChart" class="chart")
-    canvas(id="foodChart" class="chart")
-    script(src='https://cdn.jsdelivr.net/npm/chart.js')
-    script(src='scriptsAnimal.js')
-    script(src='scriptsColor.js')
-    script(src='scriptsFood.js')
+    if user
+        canvas(id="animalChart" class="chart")
+        canvas(id="colorChart" class="chart")
+        canvas(id="foodChart" class="chart")
+        script(src='https://cdn.jsdelivr.net/npm/chart.js')
+        script(src='scriptsAnimal.js')
+        script(src='scriptsColor.js')
+        script(src='scriptsFood.js')
+    else 
+        h1 It doesn't look like you're logged in. Please log in to access this content.
