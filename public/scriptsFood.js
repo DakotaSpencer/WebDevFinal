@@ -24,7 +24,7 @@ fetch(url3).then(response => response.json()).then(data => {
     ],
     datasets: [{
       label: 'My First Dataset',
-      data: [1,1,1,1],
+      data: questions,
       backgroundColor: [
         'pink',
         'rgb(255,165,0)',
